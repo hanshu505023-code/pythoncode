@@ -1,0 +1,35 @@
+import time
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+driver = webdriver.Chrome()
+driver.get("https://pos-app.macomal.com")
+driver.maximize_window()
+time.sleep(2)
+driver.find_element(By.XPATH,'//*[@name="phoneNo"]').send_keys('98541263 b')
+driver.find_element(By.NAME,"password").send_keys("nirmesh")
+time.sleep(2)
+driver.find_element(By.XPATH,"//button[@type='submit']").click()
+time.sleep(3)
+driver.find_element(By.XPATH,"//button[@class='btn btn-outline-primary']").click()
+time.sleep(2)
+driver.get("https://pos-app.macomal.com/colour-master")
+driver.find_element(By.XPATH,"//input[@id='colourName']").send_keys('orange')
+time.sleep(2)
+driver.find_element(By.ID,"colourSymbol").send_keys('hrm')
+driver.find_element(By.XPATH,"//button[normalize-space()='Add']").click()
+time.sleep(3)
+## User Reset ##
+driver.find_element(By.XPATH,"//tbody/tr[8]/td[1]/div[1]/div[1]//*[name()='svg']//*[name()='path' and contains(@d,'M3 17.25V2')]").click()
+time.sleep(4)
+driver.find_element(By.XPATH,"//button[normalize-space()='Reset']").click()
+time.sleep(3)
+## User updated ##
+driver.find_element(By.XPATH,"//tbody/tr[8]/td[1]/div[1]/div[1]//*[name()='svg']//*[name()='path' and contains(@d,'M3 17.25V2')]").click()
+time.sleep(2)
+driver.find_element(By.XPATH,"//button[normalize-space()='Update']").click()
+time.sleep(2)
+## User deleted ##
+driver.find_element(By.XPATH,"//tbody/tr[8]/td[1]/div[1]/div[2]//*[name()='svg']//*[name()='path' and contains(@d,'M6 19c0 1.')]").click()
+time.sleep(2)
+driver.find_element(By.XPATH,"//button[normalize-space()='Yes, delete it!']").click()
+time.sleep(4)
