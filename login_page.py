@@ -33,3 +33,5 @@ driver.find_element(By.XPATH,"//span[normalize-space()='Company Master']").click
 time.sleep(2)
 driver.find_element(By.XPATH,"//span[normalize-space()='Invoice Series']").click()
 time.sleep(4)
+
+print('hello world')
